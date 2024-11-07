@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rocketcode.Prueba8.mapper.TaskMapper">
+
+    <!-- Consulta para insertar una nueva tarea -->
+
+    <insert id="insertTask" parameterType="com.rocketcode.Prueba8.model.Task">
+        INSERT INTO tasks (nombre, descripcion, fecha_inicio)
+        VALUES (#{nombre}, #{descripcion}, #{fechaInicio});
+    </insert>
+
+    <!-- Consulta para obtener todas las tareas -->
+    <select id="getAllTasks" resultType="com.rocketcode.Prueba8.model.Task">
+        SELECT id, nombre, descripcion, fecha_inicio AS fechaInicio, fecha_creacion AS fechaCreacion, fecha_actualizacion AS fechaActualizacion
+        FROM tasks
+        ORDER BY id ASC;
+    </select>
+
+</mapper>
